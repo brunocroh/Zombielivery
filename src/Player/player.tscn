@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://b45elu7r1504h"]
+
+[ext_resource type="Script" path="res://src/Player/Player.gd" id="1_ckf28"]
+[ext_resource type="Texture2D" uid="uid://v71r4iqppfvx" path="res://assets/art/aa2.png" id="4_kle4g"]
+[ext_resource type="Texture2D" uid="uid://odiwbmdcsydr" path="res://assets/art/aa3.png" id="5_mgw0r"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bcift"]
+load_path = "res://.godot/imported/playerGrey_up1.png-510d7162ef952bb07c1afd1639303c70.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k2i4e"]
+load_path = "res://.godot/imported/playerGrey_up2.png-7bbe607b15d6991a29e012e798a014ef.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6wokh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_bcift")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_k2i4e")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kle4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mgw0r")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D"]
+position = Vector2(964, 537)
+scale = Vector2(3, 3)
+script = ExtResource("1_ckf28")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -0.0195097
+sprite_frames = SubResource("SpriteFrames_6wokh")
+animation = &"walk"
+frame_progress = 0.438987
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
