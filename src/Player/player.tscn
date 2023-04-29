@@ -37,11 +37,7 @@ animations = [{
 size = Vector2(24, 48.3333)
 
 [node name="Player" type="Area2D"]
-<<<<<<< HEAD
 position = Vector2(925, 735)
-=======
-position = Vector2(963, 538)
->>>>>>> 32c580a088a9b6be539351ac7b62456ee91e4882
 scale = Vector2(3, 3)
 script = ExtResource("1_ckf28")
 metadata/_edit_group_ = true
@@ -52,7 +48,7 @@ rotation = 0.0131758
 scale = Vector2(0.981618, 1.03265)
 sprite_frames = SubResource("SpriteFrames_6wokh")
 animation = &"walk"
-frame_progress = 0.304108
+frame_progress = 0.438987
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 9.16666)
