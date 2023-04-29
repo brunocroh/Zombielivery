@@ -59,5 +59,15 @@ func _on_regintimer_timeout():
 
 
 
+<<<<<<< HEAD
+=======
+
+  if velocity.x < 0:
+    $AnimatedSprite2D.flip_h = true
+  else:
+    $AnimatedSprite2D.flip_h = false
+
+  position += delta * velocity
+>>>>>>> 32c580a088a9b6be539351ac7b62456ee91e4882
 
 
