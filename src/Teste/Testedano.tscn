@@ -1,20 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4nv4yx7m65gs"]
+[gd_scene load_steps=3 format=3 uid="uid://bjlvinrejidcb"]
 
 [ext_resource type="PackedScene" uid="uid://d0us0hqenetvk" path="res://src/Enemy/Enemy.tscn" id="1_uovm8"]
-[ext_resource type="PackedScene" uid="uid://bchrgpr4l4n6w" path="res://src/Map/Map.tscn" id="1_y2dv7"]
 [ext_resource type="PackedScene" uid="uid://beyq8pnr7ljk6" path="res://src/Player/Player.tscn" id="2_5fx0a"]
-[ext_resource type="PackedScene" uid="uid://cg4b5kk5i2wim" path="res://src/Enemy/Enemy2/node_2d.tscn" id="4_ywfnd"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Area2D" parent="." instance=ExtResource("1_y2dv7")]
-position = Vector2(-1, -3)
 
 [node name="Enemy" parent="." instance=ExtResource("1_uovm8")]
 position = Vector2(545, 734)
 
 [node name="Player" parent="." instance=ExtResource("2_5fx0a")]
 position = Vector2(127, 424)
-
-[node name="Node2D" parent="." instance=ExtResource("4_ywfnd")]
-position = Vector2(312, -45)
