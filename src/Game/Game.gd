@@ -7,9 +7,7 @@ var tileSize = 864
 var renderedTiles = []
 var oldRenderedTiles = []
 
-var dicTiles = {
-  "-864,-864": "rendered",
-}
+var dicTiles = {}
 
 func _on_area_exited(_area: Area2D, mapa):
   var x = mapa.position.x

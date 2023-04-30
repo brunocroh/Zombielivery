@@ -48,7 +48,6 @@ scale = Vector2(3, 2.99)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_ici0x")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.999985, 35)
@@ -88,6 +87,9 @@ position = Vector2(32.6641, 44.1442)
 rotation = 1.309
 shape = SubResource("CapsuleShape2D_n6vsp")
 script = ExtResource("4_cl46h")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="ProgressBar/Regin_timer" to="." method="_on_regin_timer_timeout"]
