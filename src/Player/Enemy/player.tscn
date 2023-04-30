@@ -38,7 +38,7 @@ size = Vector2(24, 48.3333)
 
 [node name="Player" type="Area2D"]
 z_index = 100
-position = Vector2(160, 160)
+position = Vector2(264, 88)
 scale = Vector2(3, 3)
 script = ExtResource("1_342wd")
 metadata/_edit_group_ = true
@@ -72,6 +72,8 @@ show_percentage = false
 [node name="Regin_timer" type="Timer" parent="ProgressBar"]
 wait_time = 5.0
 autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="ProgressBar/Regin_timer" to="." method="_on_regin_timer_timeout"]
