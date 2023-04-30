@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b45elu7r1504h"]
+[gd_scene load_steps=7 format=3 uid="uid://b45elu7r1504h"]
 
 [ext_resource type="Script" path="res://src/Player/Player.gd" id="1_ckf28"]
 [ext_resource type="Texture2D" uid="uid://v71r4iqppfvx" path="res://assets/art/aa2.png" id="4_kle4g"]
@@ -33,9 +33,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjwih"]
-size = Vector2(24, 48.3333)
-
 [node name="Player" type="Area2D"]
 position = Vector2(160, 160)
 scale = Vector2(3, 3)
@@ -48,7 +45,7 @@ rotation = 0.0131758
 scale = Vector2(0.981618, 1.03265)
 sprite_frames = SubResource("SpriteFrames_6wokh")
 animation = &"walk"
-frame_progress = 0.438987
+frame_progress = 0.304108
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.666649, 42.6667)
