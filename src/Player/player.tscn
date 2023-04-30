@@ -34,17 +34,40 @@ animations = [{
 }]
 
 [node name="Player" type="Area2D"]
-position = Vector2(963, 538)
+position = Vector2(160, 160)
 scale = Vector2(3, 3)
 script = ExtResource("1_ckf28")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = -0.0195097
+position = Vector2(0.999985, 35)
+rotation = 0.0131758
+scale = Vector2(0.981618, 1.03265)
 sprite_frames = SubResource("SpriteFrames_6wokh")
 animation = &"walk"
 frame_progress = 0.304108
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.666649, 42.6667)
+shape = SubResource("RectangleShape2D_bjwih")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 67.0
+offset_right = 403.0
+offset_bottom = 137.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+
+[node name="Regin_timer" type="Timer" parent="ProgressBar"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="ProgressBar/Regin_timer" to="." method="_on_regin_timer_timeout"]
