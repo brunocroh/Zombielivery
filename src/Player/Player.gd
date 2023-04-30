@@ -2,7 +2,7 @@ extends Area2D
 
 @export var speed = 400 
 var screen_size 
-var health = 100
+var healthPlayer = 100
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -10,16 +10,6 @@ func _ready():
 func _process(delta):
 	player_movement(delta)
 	update_health()
-
-
-
-
-
-
-
-
-
-
 
 func player_movement(delta):
 	
@@ -51,25 +41,22 @@ func player_movement(delta):
 
 ## HealthBar
 func update_health():
-	var healthbar = $healthbar
-	print($healthbar)
+	var healthbar = $ProgressBar
+	healthbar.value = healthPlayer
+	
+	if healthPlayer >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+
+func _on_regin_timer_timeout():
+	if healthPlayer < 100:
+		healthPlayer = healthPlayer + 20
+		if healthPlayer > 100:
+			healthPlayer = 100
+		if healthPlayer == 0:
+			healthPlayer = 0
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+func _on_area_entered(area):
+	healthPlayer = healthPlayer - 20

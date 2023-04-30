@@ -37,13 +37,13 @@ animations = [{
 size = Vector2(24, 48.3333)
 
 [node name="Player" type="Area2D"]
-position = Vector2(925, 735)
+position = Vector2(160, 160)
 scale = Vector2(3, 3)
 script = ExtResource("1_ckf28")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.936905, 0.902691)
+position = Vector2(0.999985, 35)
 rotation = 0.0131758
 scale = Vector2(0.981618, 1.03265)
 sprite_frames = SubResource("SpriteFrames_6wokh")
@@ -51,7 +51,7 @@ animation = &"walk"
 frame_progress = 0.438987
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 9.16666)
+position = Vector2(0.666649, 42.6667)
 shape = SubResource("RectangleShape2D_bjwih")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
@@ -59,16 +59,18 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -11.0
-offset_top = 33.0
-offset_right = 232.0
-offset_bottom = 76.0
+offset_left = -20.0
+offset_top = 67.0
+offset_right = 403.0
+offset_bottom = 137.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
+show_percentage = false
 
-[node name="regin-timer" type="Timer" parent="ProgressBar"]
+[node name="Regin_timer" type="Timer" parent="ProgressBar"]
 wait_time = 5.0
 autostart = true
 
-[connection signal="timeout" from="ProgressBar/regin-timer" to="." method="_on_regintimer_timeout"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="ProgressBar/Regin_timer" to="." method="_on_regin_timer_timeout"]
