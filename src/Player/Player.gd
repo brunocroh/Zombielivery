@@ -59,4 +59,5 @@ func _on_regin_timer_timeout():
 
 
 func _on_area_entered(area):
+	healthPlayer -= value
 	healthPlayer = healthPlayer - 20

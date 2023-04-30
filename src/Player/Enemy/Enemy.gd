@@ -1,4 +1,5 @@
 extends Area2D
+signal damage(value)
 
 var health = 2
 
@@ -13,6 +14,7 @@ func _process(delta):
 
 
 func _on_area_entered(area):
+	emit_signal("damage", 1)
 	health = health - 1
 	if health < 1:
 		queue_free()
