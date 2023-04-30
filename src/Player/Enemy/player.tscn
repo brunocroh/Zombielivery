@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b45elu7r1504h"]
+[gd_scene load_steps=8 format=3 uid="uid://bt6mlqdf87xt3"]
 
-[ext_resource type="Script" path="res://src/Player/Player.gd" id="1_ckf28"]
-[ext_resource type="Texture2D" uid="uid://v71r4iqppfvx" path="res://assets/art/aa2.png" id="4_kle4g"]
-[ext_resource type="Texture2D" uid="uid://odiwbmdcsydr" path="res://assets/art/aa3.png" id="5_mgw0r"]
+[ext_resource type="Script" path="res://src/Player/Enemy/Player.gd" id="1_342wd"]
+[ext_resource type="Texture2D" uid="uid://v71r4iqppfvx" path="res://assets/art/aa2.png" id="2_msl8p"]
+[ext_resource type="Texture2D" uid="uid://odiwbmdcsydr" path="res://assets/art/aa3.png" id="3_fa0tf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bcift"]
 
@@ -23,20 +23,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_kle4g")
+"texture": ExtResource("2_msl8p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_mgw0r")
+"texture": ExtResource("3_fa0tf")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjwih"]
+size = Vector2(24, 48.3333)
+
 [node name="Player" type="Area2D"]
 position = Vector2(160, 160)
 scale = Vector2(3, 3)
-script = ExtResource("1_ckf28")
+script = ExtResource("1_342wd")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -45,7 +48,7 @@ rotation = 0.0131758
 scale = Vector2(0.981618, 1.03265)
 sprite_frames = SubResource("SpriteFrames_6wokh")
 animation = &"walk"
-frame_progress = 0.304108
+frame_progress = 0.438987
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.666649, 42.6667)
