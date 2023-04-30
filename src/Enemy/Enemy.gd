@@ -2,6 +2,8 @@ extends Area2D
 
 var health = GlobalScript.healthBasicEnemy
 
+signal health_depleted
+
 func _ready():
 	add_to_group(GlobalScript.grupoInimigo)
 	
@@ -11,4 +13,4 @@ func _process(delta):
 	var helthbar = $EnemyHealth
 	helthbar.value = health
 	if health < 1:
-		queue_free()
+		health_depleted.emit()

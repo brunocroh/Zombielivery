@@ -1,66 +1,71 @@
 extends Area2D
 
 @onready var map = preload("res://src/Map/Map.tscn")
-var Game
+@onready var enemy = preload("res://src/Enemy/Enemy.tscn")
 
 var tileSize = 864
+var renderedEnemies = []
 var renderedTiles = []
 var oldRenderedTiles = []
 
 var dicTiles = {}
 
+func on_enemy_health_depleted(_enemy):
+  print('enemy')
+  get_tree().current_scene.call_deferred('remove_child', _enemy)
+  _enemy.call_deferred('queue_free')
+
+
 func _on_area_exited(_area: Area2D, mapa):
-	var x = mapa.position.x
-	var y = mapa.position.y
+  var x = mapa.position.x
+  var y = mapa.position.y
 
-	oldRenderedTiles = renderedTiles
-	renderedTiles = []
+  oldRenderedTiles = renderedTiles
+  renderedTiles = []
 
-	create_tiles(x, y)
+  create_tiles(x, y)
 
-	for n in oldRenderedTiles:
-		if n != null:
-			get_tree().current_scene.call_deferred('remove_child', n)
-			n.queue_free()
+  for n in oldRenderedTiles:
+    if n != null:
+      get_tree().current_scene.call_deferred('remove_child', n)
+      n.queue_free()
 
-
-
-func createTile(x, y):
-	var mapa = map.instantiate()
-	mapa.position = Vector2(x, y)
-	mapa.area_exited.connect(func(area): _on_area_exited(area, mapa))
-	get_tree().current_scene.call_deferred('add_child', mapa)
-	return mapa
+func create_tile(x, y):
+  var mapa = map.instantiate()
+  mapa.position = Vector2(x, y)
+  mapa.area_exited.connect(func(area): _on_area_exited(area, mapa))
+  get_tree().current_scene.call_deferred('add_child', mapa)
+  return mapa
 
 func create_tiles(x, y):
+  for i in range(-1, 4):
+    for j in range(-1, 4):
+      var _x = x + (i - 1) * tileSize
+      var _y = y + (j - 1) * tileSize
+      var dicKey = str(_x, ',', _y)
+      if (not dicTiles.has(dicKey)):
+        dicTiles[dicKey] = 'rendered'
 
-	# Z1 Z2 Z3 Z4 Z5
-	# A1 A2 A3 A4 A5
-	# B1 B2 B3 B4 B5   
-	# C1 C2 C3 C4 C5
-	# D1 D2 D3 D4 D5
+        renderedTiles.append(
+          create_tile(x + (i - 1) * tileSize, y + (j - 1) * tileSize)    
+        )
 
-	for i in range(-1, 4):
-		for j in range(-1, 4):
-			var _x = x + (i - 1) * tileSize
-			var _y = y + (j - 1) * tileSize
-			var dicKey = str(_x, ',', _y)
-			if (dicTiles.has(dicKey)):
-				print('rerender')
-			else: 
-				dicTiles[dicKey] = 'rendered'
+        dicTiles = {}
 
-			renderedTiles.append(
-				createTile(x + (i - 1) * tileSize, y + (j - 1) * tileSize)    
-			)
-
-	dicTiles = {}
+func spawn_enemy(x, y):
+  var _enemy = enemy.instantiate()
+  _enemy.position = Vector2(x, y)
+  _enemy.health_depleted.connect(func(): on_enemy_health_depleted(_enemy))
+  get_tree().current_scene.call_deferred('add_child', _enemy)
+  return _enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Game = get_tree().current_scene
-	create_tiles(0, 0)
+  create_tiles(0, 0)
+  renderedEnemies.append(
+    spawn_enemy(10, 10)
+)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+  pass
