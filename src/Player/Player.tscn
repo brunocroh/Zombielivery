@@ -43,11 +43,18 @@ radius = 1.33333
 height = 43.4785
 
 [node name="Player" type="Area2D"]
+<<<<<<< HEAD:src/Player/Player.tscn
 position = Vector2(73, 187)
 scale = Vector2(3, 2.99)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_ici0x")
+=======
+z_index = 100
+position = Vector2(264, 88)
+scale = Vector2(3, 3)
+script = ExtResource("1_342wd")
+>>>>>>> 571d015fd1cef26f6db5ce0151832e269640dca7:src/Player/Enemy/player.tscn
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -81,6 +88,7 @@ show_percentage = false
 wait_time = 5.0
 autostart = true
 
+<<<<<<< HEAD:src/Player/Player.tscn
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -88,6 +96,9 @@ position = Vector2(32.6641, 44.1442)
 rotation = 1.309
 shape = SubResource("CapsuleShape2D_n6vsp")
 script = ExtResource("4_cl46h")
+=======
+[node name="Camera2D" type="Camera2D" parent="."]
+>>>>>>> 571d015fd1cef26f6db5ce0151832e269640dca7:src/Player/Enemy/player.tscn
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="ProgressBar/Regin_timer" to="." method="_on_regin_timer_timeout"]
