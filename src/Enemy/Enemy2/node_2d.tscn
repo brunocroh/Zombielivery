@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg4b5kk5i2wim"]
+
+[ext_resource type="Script" path="res://src/Enemy/Enemy2/node_2d.gd" id="1_8iguy"]
+[ext_resource type="Texture2D" uid="uid://bg338d0b3i2i8" path="res://assets/art/enemySwimming_1.png" id="1_fpd62"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_reypa"]
+radius = 344.176
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x0j3x"]
+radius = 39.5601
+
+[node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_8iguy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(362, 325.5)
+scale = Vector2(0.757576, 0.78125)
+texture = ExtResource("1_fpd62")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(369, 330)
+shape = SubResource("CircleShape2D_reypa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(369, 323)
+shape = SubResource("CircleShape2D_x0j3x")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

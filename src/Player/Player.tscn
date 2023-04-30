@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt6mlqdf87xt3"]
+[gd_scene load_steps=10 format=3 uid="uid://beyq8pnr7ljk6"]
 
-[ext_resource type="Script" path="res://src/Player/Enemy/Player.gd" id="1_342wd"]
-[ext_resource type="Texture2D" uid="uid://v71r4iqppfvx" path="res://assets/art/aa2.png" id="2_msl8p"]
-[ext_resource type="Texture2D" uid="uid://odiwbmdcsydr" path="res://assets/art/aa3.png" id="3_fa0tf"]
+[ext_resource type="Script" path="res://src/Player/Player.gd" id="1_ici0x"]
+[ext_resource type="Texture2D" uid="uid://v71r4iqppfvx" path="res://assets/art/aa2.png" id="2_phkx2"]
+[ext_resource type="Texture2D" uid="uid://odiwbmdcsydr" path="res://assets/art/aa3.png" id="3_1xgqt"]
+[ext_resource type="Script" path="res://src/Player/Sword.gd" id="4_cl46h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bcift"]
 
@@ -23,24 +24,30 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_msl8p")
+"texture": ExtResource("2_phkx2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_fa0tf")
+"texture": ExtResource("3_1xgqt")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjwih"]
-size = Vector2(24, 48.3333)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7uw0h"]
+radius = 11.3333
+height = 49.1146
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n6vsp"]
+radius = 1.33333
+height = 43.4785
 
 [node name="Player" type="Area2D"]
-z_index = 100
-position = Vector2(160, 160)
-scale = Vector2(3, 3)
-script = ExtResource("1_342wd")
+position = Vector2(73, 187)
+scale = Vector2(3, 2.99)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_ici0x")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -49,11 +56,11 @@ rotation = 0.0131758
 scale = Vector2(0.981618, 1.03265)
 sprite_frames = SubResource("SpriteFrames_6wokh")
 animation = &"walk"
-frame_progress = 0.438987
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.666649, 42.6667)
-shape = SubResource("RectangleShape2D_bjwih")
+[node name="PlayerColision" type="CollisionShape2D" parent="."]
+position = Vector2(1.19209e-07, 44.1471)
+shape = SubResource("CapsuleShape2D_7uw0h")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 anchors_preset = 11
@@ -67,11 +74,21 @@ offset_bottom = 137.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
+max_value = 20.0
 show_percentage = false
 
 [node name="Regin_timer" type="Timer" parent="ProgressBar"]
 wait_time = 5.0
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32.6641, 44.1442)
+rotation = 1.309
+shape = SubResource("CapsuleShape2D_n6vsp")
+script = ExtResource("4_cl46h")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="ProgressBar/Regin_timer" to="." method="_on_regin_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="Area2D/CollisionShape2D" method="_on_area_2d_area_entered"]

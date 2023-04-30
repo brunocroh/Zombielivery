@@ -2,14 +2,17 @@ extends Area2D
 
 @export var speed = 400 
 var screen_size 
-var healthPlayer = 100
+var healthPlayer = GlobalScript.healthGlobalPlayer
+var currentDamage = 2
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	add_to_group(GlobalScript.grupoPlayer)
 
 func _process(delta):
 	player_movement(delta)
 	update_health()
+
 
 func player_movement(delta):
 	
@@ -43,6 +46,7 @@ func player_movement(delta):
 func update_health():
 	var healthbar = $ProgressBar
 	healthbar.value = healthPlayer
+	GlobalScript.healthGlobalPlayer = healthPlayer
 	
 	if healthPlayer >= 100:
 		healthbar.visible = false
@@ -50,13 +54,15 @@ func update_health():
 		healthbar.visible = true
 
 func _on_regin_timer_timeout():
-	if healthPlayer < 100:
-		healthPlayer = healthPlayer + 20
-		if healthPlayer > 100:
-			healthPlayer = 100
+	if healthPlayer < 20:
+		healthPlayer = healthPlayer + 1
+		if healthPlayer > 20:
+			healthPlayer = 20
 		if healthPlayer == 0:
 			healthPlayer = 0
 
-
 func _on_area_entered(area):
-	healthPlayer = healthPlayer - 20
+	if area.is_in_group(GlobalScript.grupoInimigo):
+		GlobalScript.damageTake()
+		healthPlayer = GlobalScript.healthGlobalPlayer
+	
