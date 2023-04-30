@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bchrgpr4l4n6w"]
 
-[ext_resource type="TileSet" uid="uid://daja4yen87ok7" path="res://src/Map/street-tile.tres" id="1_i3fu1"]
+[ext_resource type="TileSet" uid="uid://dlst8jeqvncyk" path="res://src/Map/street-tile.tres" id="1_i3fu1"]
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="2_aosrd"]
 
 [node name="Area2D" type="Area2D"]

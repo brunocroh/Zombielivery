@@ -37,6 +37,7 @@ animations = [{
 size = Vector2(24, 48.3333)
 
 [node name="Player" type="Area2D"]
+z_index = 100
 position = Vector2(160, 160)
 scale = Vector2(3, 3)
 script = ExtResource("1_342wd")
