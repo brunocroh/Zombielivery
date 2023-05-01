@@ -76,7 +76,7 @@ func create_tile(x, y):
 		dicTiles[dicKey] = value
 
 
-	var actualMap = mapas[value].instantiate()
+	var actualMap = mapa1.instantiate()
 
 	actualMap.position = Vector2(x, y)
 	actualMap.body_exited.connect(func(body): _on_body_exited(body, actualMap))
@@ -85,10 +85,10 @@ func create_tile(x, y):
 
 func create_tiles(x, y):
 	print('create_tile')
-	for i in range(-1, 4):
-		for j in range(-1, 4):
-			var _x = x + (i - 1) * tileSize
-			var _y = y + (j - 1) * tileSize
+	for i in range(0, 4):
+		for j in range(0, 4):
+			var _x = x + (i) * tileSize
+			var _y = y + (j) * tileSize
 			renderedTiles.append(
 				create_tile(x + (i - 1) * tileSize, y + (j - 1) * ( tileSize - 126 ))    
 			)
