@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://3546i6bkwjt6"]
+[gd_scene load_steps=3 format=3 uid="uid://3546i6bkwjt6"]
 
+[ext_resource type="Script" path="res://src/GameOver/GameOver.gd" id="1_npx81"]
 [ext_resource type="Texture2D" uid="uid://bxut7nne8uajx" path="res://assets/art/gameOver/game over .png" id="1_woivm"]
 
 [node name="Control" type="Control"]
@@ -10,8 +11,20 @@ anchor_bottom = 1.0
 offset_left = -5.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_npx81")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(547, 272)
 scale = Vector2(8.5, 8.5)
 texture = ExtResource("1_woivm")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 629.0
+offset_right = 831.0
+offset_bottom = 660.0
+text = "Restart
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -11,8 +11,15 @@ signal enemy_attack
 func _ready():
 	update_health()
 	add_to_group(GlobalScript.grupoInimigo)
-	$AnimatedSprite2D.play()
-	
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var select = rng.randi_range(0, 2)
+	if select == 1:
+		$AnimatedSprite2D.play()
+		$Dog.hide()
+	else:
+		$Dog.play()
+		$AnimatedSprite2D.hide()
 
 func _physics_process(delta):
 	update_health()

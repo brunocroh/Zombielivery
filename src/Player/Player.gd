@@ -21,7 +21,7 @@ func _process(delta):
 	$weapon.look_at(get_global_mouse_position())
 	
 	if healthPlayer < 0:
-		get_tree().change_scene_to_file("res://src/GameOver.tscn")
+		get_tree().change_scene_to_file("res://src/GameOver/GameOver.tscn")
 
 func player_movement(delta):
 	
