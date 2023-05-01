@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://beyq8pnr7ljk6"]
+[gd_scene load_steps=9 format=3 uid="uid://laqx0tcmpajw"]
 
 [ext_resource type="Script" path="res://src/Player/Player.gd" id="1_ici0x"]
 [ext_resource type="Texture2D" uid="uid://v71r4iqppfvx" path="res://assets/art/aa2.png" id="2_phkx2"]
@@ -35,26 +35,25 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7uw0h"]
-radius = 13.6667
-height = 47.4916
+radius = 11.3333
+height = 49.1146
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 100
-position = Vector2(76, 185)
+position = Vector2(76, 195)
 scale = Vector2(3, 2.99)
-collision_mask = 30
+collision_mask = 286
 script = ExtResource("1_ici0x")
-speed = 1000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.331434, -6.02008)
+position = Vector2(0.999985, 35)
 rotation = 0.0131758
 scale = Vector2(0.981618, 1.03265)
 sprite_frames = SubResource("SpriteFrames_6wokh")
 animation = &"walk"
 
 [node name="PlayerColision" type="CollisionShape2D" parent="."]
-position = Vector2(0.333328, 5.01672)
+position = Vector2(1.19209e-07, 44.1471)
 shape = SubResource("CapsuleShape2D_7uw0h")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
@@ -65,10 +64,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -18.6667
-offset_top = 27.4247
-offset_right = 404.333
-offset_bottom = 97.4247
+offset_left = -20.0
+offset_top = 67.0
+offset_right = 403.0
+offset_bottom = 137.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
@@ -79,17 +78,20 @@ wait_time = 5.0
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0.333328, 0)
-zoom = Vector2(0.8, 0.8)
+position = Vector2(-0.333334, 0)
 
 [node name="weapon" type="Sprite2D" parent="."]
+<<<<<<< HEAD
 visible = false
 position = Vector2(0.669342, 4.62036)
+=======
+position = Vector2(0.845551, 44.8172)
+>>>>>>> a9cc7c2a17ceebcb0c5df23f8f9ac47f5e1dd8df
 rotation = -1.57959
 scale = Vector2(0.218815, 0.0162199)
 texture = ExtResource("5_fcigi")
 
 [node name="Marker2D" type="Marker2D" parent="weapon"]
-position = Vector2(78.6834, 39.484)
+position = Vector2(71.5187, -14.5369)
 
 [connection signal="timeout" from="ProgressBar/Regin_timer" to="." method="_on_regin_timer_timeout"]

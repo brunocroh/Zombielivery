@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://834t2hupusxe"]
+
+[ext_resource type="PackedScene" uid="uid://cidvie1spo006" path="res://src/Mapa/Mapa2.tscn" id="1_ob727"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vocy"]
+size = Vector2(2314, 2178)
+
+[node name="Mapa4" type="Area2D"]
+
+[node name="TileMap2" parent="." instance=ExtResource("1_ob727")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1155, 1063)
+shape = SubResource("RectangleShape2D_0vocy")
