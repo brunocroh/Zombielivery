@@ -11,7 +11,6 @@ var _treasure
 var arrow
 
 var tileSize = 864
-var renderedEnemies = []
 var renderedTiles = []
 var oldRenderedTiles = []
 
@@ -81,6 +80,13 @@ func create_tiles(x, y):
 func deal_damage(damage):
 	actualPlayer.damage_take(damage)
 
+func listen_enemy_dead():
+	spawnEnemy.enemies(
+		actualPlayer.position.x,
+		actualPlayer.position.y,
+		deal_damage
+	)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	create_objetive()
@@ -88,11 +94,8 @@ func _ready():
 
 	actualPlayer = create_player()
 	create_tiles(0, 0)
-	for i in range(10):
-		renderedEnemies.append(
-			spawnEnemy.spawn_enemy(0, 0, deal_damage)
-)
-
+	spawnEnemy.enemies(0, 0, deal_damage)
+	spawnEnemy.enemy_dead.connect(listen_enemy_dead)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

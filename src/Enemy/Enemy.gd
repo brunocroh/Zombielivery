@@ -7,6 +7,7 @@ var player = null
 var health = 100
 signal health_depleted
 signal enemy_attack
+signal health_dead
 
 func _ready():
 	update_health()
