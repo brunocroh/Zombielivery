@@ -3,7 +3,7 @@ extends Node
 const grupoInimigo = "inimigo"
 const grupoPlayer = "player"
 
-var healthGlobalPlayer = 20
+var healthGlobalPlayer = 100
 var currentPlayerDamage = 1
 
 var healthBasicEnemy = 2

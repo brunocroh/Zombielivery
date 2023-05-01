@@ -12,6 +12,6 @@ metadata/_edit_group_ = true
 
 [node name="Arrow" type="Sprite2D" parent="HUD"]
 z_index = 101
-position = Vector2(211, 65)
-rotation = -6.28319
+position = Vector2(211, 64)
+rotation = 0.0296706
 texture = ExtResource("2_x8tbh")

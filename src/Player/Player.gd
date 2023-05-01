@@ -4,6 +4,9 @@ extends CharacterBody2D
 var screen_size 
 var healthPlayer = 100
 var currentDamage = 2
+@onready var bulletPath = preload("res://src/bullet/bullet.tscn")
+var can_fire = true
+
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -12,6 +15,10 @@ func _ready():
 func _process(delta):
 	player_movement(delta)
 	update_health()
+	if Input.is_action_pressed("shoot") and can_fire:
+		shoot()
+		
+	$weapon.look_at(get_global_mouse_position())
 
 func player_movement(delta):
 	
@@ -69,3 +76,11 @@ func _on_area_entered(area):
 		GlobalScript.damageTake()
 		healthPlayer = GlobalScript.healthGlobalPlayer
 	
+func shoot():
+	var bullet = bulletPath.instantiate()
+	bullet.position = $weapon/Marker2D.global_position
+	bullet.veloc = get_global_mouse_position() - bullet.position
+	get_parent().add_child(bullet)
+	can_fire = false
+	await get_tree().create_timer(0.3).timeout
+	can_fire = true
