@@ -50,18 +50,18 @@ func player_movement(delta):
 
 ## HealthBar
 func damage_take(damage):
-  healthPlayer -= damage
-  print('health', healthPlayer)
-  update_health()
+	healthPlayer -= damage
+	print('health', healthPlayer)
+	update_health()
 
 func update_health():
-  var healthbar = $ProgressBar
-  healthbar.value = healthPlayer
-  
-  if healthPlayer >= 100:
-    healthbar.visible = false
-  else:
-    healthbar.visible = true
+	var healthbar = $ProgressBar
+	healthbar.value = healthPlayer
+	
+	if healthPlayer >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
 
 func _on_regin_timer_timeout():
 	if healthPlayer < 20:

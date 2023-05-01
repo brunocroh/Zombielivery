@@ -63,18 +63,18 @@ func create_tiles(x, y):
 				dicTiles = {}
 
 func deal_damage(damage):
-  actualPlayer.damage_take(damage)
-  print('o viado atacou: ', damage)
+	actualPlayer.damage_take(damage)
+	print('o viado atacou: ', damage)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawnEnemy.getTree = get_tree()
 
-  actualPlayer = create_player()
-  create_tiles(0, 0)
-  for i in range(10):
-    renderedEnemies.append(
-      spawnEnemy.spawn_enemy(0, 0, deal_damage)
+	actualPlayer = create_player()
+	create_tiles(0, 0)
+	for i in range(10):
+		renderedEnemies.append(
+			spawnEnemy.spawn_enemy(0, 0, deal_damage)
 )
 
 
