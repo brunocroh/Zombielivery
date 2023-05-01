@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0us0hqenetvk"]
+[gd_scene load_steps=10 format=3 uid="uid://d0us0hqenetvk"]
 
 [ext_resource type="Script" path="res://src/Enemy/Enemy.gd" id="1_5y0l8"]
+[ext_resource type="Texture2D" uid="uid://qdl270cusvrl" path="res://assets/art/cachorro1.png" id="2_kpndf"]
 [ext_resource type="Texture2D" uid="uid://di5t8hqiri18v" path="res://assets/art/enemy/zumbi 1.png" id="2_wd34b"]
+[ext_resource type="Texture2D" uid="uid://dyeceiewr7so3" path="res://assets/art/cachorro2.png" id="3_8gt3q"]
 [ext_resource type="Texture2D" uid="uid://4sivw7cv076t" path="res://assets/art/enemy/zumbi 2.png" id="3_bmpka"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0whh1"]
@@ -19,8 +21,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ph4t7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kpndf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8gt3q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qo2h8"]
-size = Vector2(126.5, 93)
+size = Vector2(49.7969, 38.7344)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c0jkw"]
 radius = 924.089
@@ -38,6 +54,12 @@ sprite_frames = SubResource("SpriteFrames_0whh1")
 frame = 1
 frame_progress = 0.174771
 
+[node name="Dog" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 1)
+scale = Vector2(3, 3.096)
+sprite_frames = SubResource("SpriteFrames_ph4t7")
+frame_progress = 0.690183
+
 [node name="EnemyHealth" type="ProgressBar" parent="."]
 modulate = Color(0.309804, 0.658824, 0.231373, 1)
 self_modulate = Color(0.309804, 0.658824, 0.231373, 1)
@@ -52,7 +74,8 @@ collision_layer = 8
 collision_mask = 17
 
 [node name="Colision" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(0.75, 0.5)
+position = Vector2(-1, -12)
+scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_qo2h8")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -61,12 +84,12 @@ scale = Vector2(10, 10)
 collision_layer = 4
 
 [node name="Colision" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(-25, -72)
+position = Vector2(-23.4, -72.1)
 scale = Vector2(1, 1.026)
 shape = SubResource("CircleShape2D_c0jkw")
 
 [node name="Colision" type="CollisionShape2D" parent="."]
-position = Vector2(2, 2)
+position = Vector2(-4.20312, -7.73438)
 shape = SubResource("RectangleShape2D_qo2h8")
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_attack_range_area_entered"]

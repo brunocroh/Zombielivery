@@ -12,8 +12,15 @@ signal health_dead
 func _ready():
 	update_health()
 	add_to_group(GlobalScript.grupoInimigo)
-	$AnimatedSprite2D.play()
-	
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var select = rng.randi_range(0, 2)
+	if select == 1:
+		$AnimatedSprite2D.play()
+		$Dog.hide()
+	else:
+		$Dog.play()
+		$AnimatedSprite2D.hide()
 
 func _physics_process(delta):
 	update_health()
@@ -22,8 +29,10 @@ func _physics_process(delta):
 		move_and_collide(_velocity * SPEED * delta)
 		if(player.position.x - position.x) < 0:
 			$AnimatedSprite2D.flip_h = true
+			$Dog.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false
+			$Dog.flip_h = false
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":

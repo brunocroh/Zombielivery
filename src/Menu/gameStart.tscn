@@ -39,8 +39,8 @@ layout_mode = 2
 text = "Text"
 
 [node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(27.3624, 0.691223)
-scale = Vector2(1.6875, 2.25)
+position = Vector2(28.078, -6.88597)
+scale = Vector2(2.10742, 2.80469)
 texture = ExtResource("2_q6wju")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
