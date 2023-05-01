@@ -58,7 +58,7 @@ frame_progress = 0.174771
 position = Vector2(4, 1)
 scale = Vector2(3, 3.096)
 sprite_frames = SubResource("SpriteFrames_ph4t7")
-frame_progress = 0.34462
+frame_progress = 0.690183
 
 [node name="EnemyHealth" type="ProgressBar" parent="."]
 modulate = Color(0.309804, 0.658824, 0.231373, 1)

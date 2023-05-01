@@ -28,8 +28,10 @@ func _physics_process(delta):
 		move_and_collide(_velocity * SPEED * delta)
 		if(player.position.x - position.x) < 0:
 			$AnimatedSprite2D.flip_h = true
+			$Dog.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false
+			$Dog.flip_h = false
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
