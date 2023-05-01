@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var target 
+var player = null
 @export var SPEED = 500
 
 var health = 100
@@ -18,16 +19,21 @@ func _physics_process(delta):
 	if target:
 		var _velocity = global_position.direction_to(target.position)
 		move_and_collide(_velocity * SPEED * delta)
+		if(player.position.x - position.x) < 0:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
 
 func _on_area_2d_body_entered(body):
-	print(body.name)
 	if body.name == "Player":
 		target = body
+		player = body
 
 func _on_area_2d_body_exited(body):
 	print(body.name)
 	if body.name == "Player":
 		target = null
+		player = null
 
 func _on_attack_range_body_entered(body):
 	if body.name == "Player":

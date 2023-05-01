@@ -19,6 +19,9 @@ func _process(delta):
 		shoot()
 		
 	$weapon.look_at(get_global_mouse_position())
+	
+	if healthPlayer < 0:
+		get_tree().change_scene_to_file("res://src/GameOver.tscn")
 
 func player_movement(delta):
 	
@@ -37,7 +40,7 @@ func player_movement(delta):
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
-
+	
 	if velocity.x < 0:
 		$AnimatedSprite2D.flip_h = true
 	else:
