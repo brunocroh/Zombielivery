@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ntromu0e6qea"]
+
+[ext_resource type="Texture2D" uid="uid://dwx6rgm8aecfo" path="res://assets/treasure.png" id="1_s0k6j"]
+
+[node name="Treasure" type="Node2D"]
+
+[node name="Treasure" type="Sprite2D" parent="."]
+z_index = 99
+position = Vector2(159, 81)
+texture = ExtResource("1_s0k6j")

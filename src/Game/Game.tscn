@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2j76mrt1vlqh"]
+[gd_scene load_steps=3 format=3 uid="uid://c2j76mrt1vlqh"]
 
 [ext_resource type="Script" path="res://src/Game/Game.gd" id="1_xjmqu"]
+[ext_resource type="Texture2D" uid="uid://dilnli7xbde6a" path="res://assets/art/arrow.png" id="2_x8tbh"]
 
 [node name="Game" type="Area2D"]
 position = Vector2(-1, 2)
 script = ExtResource("1_xjmqu")
 metadata/_edit_group_ = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Arrow" type="Sprite2D" parent="HUD"]
+z_index = 101
+position = Vector2(211, 65)
+rotation = -6.28319
+texture = ExtResource("2_x8tbh")

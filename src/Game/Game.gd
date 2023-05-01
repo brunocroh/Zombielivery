@@ -3,9 +3,12 @@ extends Area2D
 @onready var map = preload("res://src/Map/Map.tscn")
 @onready var player = preload("res://src/Player/Player.tscn")
 @onready var enemy = preload("res://src/Enemy/Enemy.tscn")
+@onready var treasure = preload("res://src/Objective/Treasure.tscn")
 
 var spawnEnemy = preload("./SpawnEnemy.gd").new()
 var actualPlayer
+var _treasure
+var arrow
 
 var tileSize = 864
 var renderedEnemies = []
@@ -14,11 +17,24 @@ var oldRenderedTiles = []
 
 var dicTiles = {}
 
+func compass():
+  if not is_instance_valid(arrow):
+    arrow = self.find_child('Arrow')
+
+  var diff =   _treasure.position - actualPlayer.position
+  arrow.rotation = diff.angle()  - PI/2
+  arrow.flip_h = true
+  print('angle', diff.angle())
+
+func create_objetive():
+  _treasure = treasure.instantiate()
+  _treasure.position = Vector2(1000, 1000)
+  get_tree().current_scene.call_deferred('add_child', _treasure)
+
 func on_enemy_health_depleted(_enemy):
   print('enemy')
   get_tree().current_scene.call_deferred('remove_child', _enemy)
   _enemy.call_deferred('queue_free')
-
 
 func _on_area_exited(_area: Area2D, mapa):
   var x = mapa.position.x
@@ -68,6 +84,7 @@ func deal_damage(damage):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+  create_objetive()
   spawnEnemy.getTree = get_tree()
 
   actualPlayer = create_player()
@@ -80,4 +97,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-  pass
+  compass()
