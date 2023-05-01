@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cplja7almo1ay"]
+
+[ext_resource type="Script" path="res://src/bullet/bullet.gd" id="1_8th3l"]
+[ext_resource type="Texture2D" uid="uid://car0cg2pefs5j" path="res://icon.svg" id="1_jsqoo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tsuq"]
+size = Vector2(11.6996, 11.2049)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fx717"]
+radius = 15.9063
+
+[node name="Node2D" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_8th3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.499999, -1.78814e-07)
+rotation = -0.0324073
+scale = Vector2(2.38965, -2.59793)
+shape = SubResource("RectangleShape2D_6tsuq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 100
+rotation = -0.0127713
+scale = Vector2(0.209628, 0.221936)
+texture = ExtResource("1_jsqoo")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.1945, 1.07619)
+shape = SubResource("CircleShape2D_fx717")
