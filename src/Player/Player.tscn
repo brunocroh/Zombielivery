@@ -59,6 +59,8 @@ shape = SubResource("CapsuleShape2D_7uw0h")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0.309804, 0.658824, 0.231373, 1)
+self_modulate = Color(0.309804, 0.658824, 0.231373, 1)
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -78,9 +80,10 @@ autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-0.333334, 0)
-zoom = Vector2(0.3, 0.3)
+zoom = Vector2(0.8, 0.8)
 
 [node name="weapon" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0.845551, 44.8172)
 rotation = -1.57959
 scale = Vector2(0.439642, 0.0162199)
