@@ -3,6 +3,9 @@ extends Area2D
 @onready var map = preload("res://src/Map/Map.tscn")
 @onready var enemy = preload("res://src/Enemy/Enemy.tscn")
 
+
+var spawnEnemy = preload("./SpawnEnemy.gd").new()
+
 var tileSize = 864
 var renderedEnemies = []
 var renderedTiles = []
@@ -52,19 +55,16 @@ func create_tiles(x, y):
 
 				dicTiles = {}
 
-func spawn_enemy(x, y):
-	var _enemy = enemy.instantiate()
-	_enemy.position = Vector2(x, y)
-	_enemy.health_depleted.connect(func(): on_enemy_health_depleted(_enemy))
-	get_tree().current_scene.call_deferred('add_child', _enemy)
-	return _enemy
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	spawnEnemy.getTree = get_tree()
+
 	create_tiles(0, 0)
-	renderedEnemies.append(
-		spawn_enemy(10, 10)
+	for i in range(10):
+		renderedEnemies.append(
+			spawnEnemy.spawn_enemy(0, 0)
 )
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

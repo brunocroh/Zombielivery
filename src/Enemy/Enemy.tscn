@@ -9,6 +9,7 @@ size = Vector2(125, 88)
 [node name="Enemy" type="Area2D" groups=["HIT"]]
 z_index = 99
 position = Vector2(284, 286)
+collision_layer = 4
 script = ExtResource("1_5y0l8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
