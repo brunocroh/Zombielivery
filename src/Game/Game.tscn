@@ -1,13 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2j76mrt1vlqh"]
+[gd_scene load_steps=2 format=3 uid="uid://c2j76mrt1vlqh"]
 
 [ext_resource type="Script" path="res://src/Game/Game.gd" id="1_xjmqu"]
-[ext_resource type="PackedScene" uid="uid://beyq8pnr7ljk6" path="res://src/Player/Player.tscn" id="2_lqhkp"]
 
 [node name="Game" type="Area2D"]
 position = Vector2(-1, 2)
 script = ExtResource("1_xjmqu")
 metadata/_edit_group_ = true
-
-[node name="Player" parent="." instance=ExtResource("2_lqhkp")]
-z_index = 100
-speed = 1000

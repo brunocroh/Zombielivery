@@ -43,10 +43,12 @@ radius = 1.33333
 height = 43.4785
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 100
 position = Vector2(73, 187)
 scale = Vector2(3, 2.99)
 collision_mask = 30
 script = ExtResource("1_ici0x")
+speed = 1000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.999985, 35)

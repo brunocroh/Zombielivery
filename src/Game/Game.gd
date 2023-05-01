@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var map = preload("res://src/Map/Map.tscn")
+@onready var player = preload("res://src/Player/Player.tscn")
 @onready var enemy = preload("res://src/Enemy/Enemy.tscn")
 
 
@@ -33,6 +34,12 @@ func _on_area_exited(_area: Area2D, mapa):
 			get_tree().current_scene.call_deferred('remove_child', n)
 			n.queue_free()
 
+func create_player():
+	var _player = player.instantiate()
+	_player.position = Vector2(0, 0)
+	get_tree().current_scene.call_deferred('add_child', _player)
+	return _player
+
 func create_tile(x, y):
 	var mapa = map.instantiate()
 	mapa.position = Vector2(x, y)
@@ -59,6 +66,7 @@ func create_tiles(x, y):
 func _ready():
 	spawnEnemy.getTree = get_tree()
 
+	create_player()
 	create_tiles(0, 0)
 	for i in range(10):
 		renderedEnemies.append(
