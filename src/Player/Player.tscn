@@ -83,7 +83,6 @@ position = Vector2(-0.333334, 0)
 zoom = Vector2(0.8, 0.8)
 
 [node name="weapon" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(0.845551, 44.8172)
 rotation = -1.57959
 scale = Vector2(0.439642, 0.0162199)
@@ -91,6 +90,5 @@ texture = ExtResource("5_fcigi")
 
 [node name="Marker2D" type="Marker2D" parent="weapon"]
 position = Vector2(71.5187, -14.5369)
-scale = Vector2(1, 1)
 
 [connection signal="timeout" from="ProgressBar/Regin_timer" to="." method="_on_regin_timer_timeout"]

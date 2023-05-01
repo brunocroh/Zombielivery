@@ -10,6 +10,8 @@ signal enemy_attack
 func _ready():
 	update_health()
 	add_to_group(GlobalScript.grupoInimigo)
+	$AnimatedSprite2D.play()
+	
 
 func _physics_process(delta):
 	update_health()

@@ -1,10 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://cplja7almo1ay"]
+[gd_scene load_steps=10 format=3 uid="uid://cplja7almo1ay"]
 
 [ext_resource type="Script" path="res://src/bullet/bullet.gd" id="1_8th3l"]
-[ext_resource type="Texture2D" uid="uid://car0cg2pefs5j" path="res://icon.svg" id="1_jsqoo"]
+[ext_resource type="Texture2D" uid="uid://dog3pvoinomd" path="res://assets/art/bullet/CARTA2.png" id="2_obnvi"]
+[ext_resource type="Texture2D" uid="uid://baadqk5m84wj6" path="res://assets/art/bullet/CARTA5.png" id="3_wfvyu"]
+[ext_resource type="Texture2D" uid="uid://cj7ah3xsc3uv7" path="res://assets/art/bullet/CARTA3.png" id="4_00y8n"]
+[ext_resource type="Texture2D" uid="uid://jwikrsek254c" path="res://assets/art/bullet/CARTA4.png" id="5_hfppy"]
+[ext_resource type="Texture2D" uid="uid://c47d8ev4sp2qi" path="res://assets/art/bullet/CARTA6.png" id="6_wfgvn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tsuq"]
 size = Vector2(11.6996, 11.2049)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cve7"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_obnvi")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_wfvyu")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_00y8n")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_hfppy")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_wfgvn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fx717"]
 radius = 19.2549
@@ -20,11 +47,12 @@ rotation = -0.0324073
 scale = Vector2(2.38965, -2.59793)
 shape = SubResource("RectangleShape2D_6tsuq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 100
-rotation = -0.0127713
-scale = Vector2(0.209628, 0.221936)
-texture = ExtResource("1_jsqoo")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 0.0588586
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6cve7")
+frame = 3
+frame_progress = 0.980851
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16

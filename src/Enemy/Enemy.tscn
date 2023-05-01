@@ -1,7 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0us0hqenetvk"]
+[gd_scene load_steps=7 format=3 uid="uid://d0us0hqenetvk"]
 
 [ext_resource type="Script" path="res://src/Enemy/Enemy.gd" id="1_5y0l8"]
-[ext_resource type="Texture2D" uid="uid://bg338d0b3i2i8" path="res://assets/art/enemySwimming_1.png" id="2_pxg76"]
+[ext_resource type="Texture2D" uid="uid://di5t8hqiri18v" path="res://assets/art/enemy/zumbi 1.png" id="2_wd34b"]
+[ext_resource type="Texture2D" uid="uid://4sivw7cv076t" path="res://assets/art/enemy/zumbi 2.png" id="3_bmpka"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0whh1"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wd34b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bmpka")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qo2h8"]
 size = Vector2(126.5, 93)
@@ -15,10 +31,12 @@ position = Vector2(284, 286)
 collision_layer = 8
 script = ExtResource("1_5y0l8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(6.10352e-05, -3.05176e-05)
-scale = Vector2(0.870257, 0.86067)
-texture = ExtResource("2_pxg76")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, -1)
+scale = Vector2(3, 3.096)
+sprite_frames = SubResource("SpriteFrames_0whh1")
+frame = 1
+frame_progress = 0.174771
 
 [node name="EnemyHealth" type="ProgressBar" parent="."]
 modulate = Color(0.309804, 0.658824, 0.231373, 1)
@@ -48,7 +66,7 @@ scale = Vector2(1, 1.026)
 shape = SubResource("CircleShape2D_c0jkw")
 
 [node name="Colision" type="CollisionShape2D" parent="."]
-position = Vector2(0.75, 0.5)
+position = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_qo2h8")
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_attack_range_area_entered"]
