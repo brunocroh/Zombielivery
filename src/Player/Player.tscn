@@ -42,9 +42,10 @@ height = 49.1146
 radius = 1.33333
 height = 43.4785
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(73, 187)
 scale = Vector2(3, 2.99)
+collision_mask = 30
 script = ExtResource("1_ici0x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -79,6 +80,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(32.6641, 44.1442)
@@ -90,6 +92,5 @@ script = ExtResource("4_cl46h")
 position = Vector2(-0.333334, 0)
 zoom = Vector2(0.3, 0.3)
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="ProgressBar/Regin_timer" to="." method="_on_regin_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="Area2D/CollisionShape2D" method="_on_area_2d_area_entered"]
