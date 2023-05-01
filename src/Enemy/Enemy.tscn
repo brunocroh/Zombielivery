@@ -49,6 +49,7 @@ shape = SubResource("CircleShape2D_c0jkw")
 position = Vector2(0.75, 0.5)
 shape = SubResource("RectangleShape2D_qo2h8")
 
+[connection signal="area_entered" from="AttackRange" to="." method="_on_attack_range_area_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_area_2d_body_exited"]
