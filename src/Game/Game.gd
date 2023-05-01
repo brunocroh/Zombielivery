@@ -9,6 +9,8 @@ var spawnEnemy = preload("./SpawnEnemy.gd").new()
 var actualPlayer
 var _treasure
 var arrow
+var exp = 0
+var XpBar
 
 var tileSize = 864
 var renderedTiles = []
@@ -26,7 +28,7 @@ func compass():
 
 func create_objetive():
 	_treasure = treasure.instantiate()
-	_treasure.position = Vector2(1000, 1000)
+	_treasure.position = Vector2(2500, 5000)
 	get_tree().current_scene.call_deferred('add_child', _treasure)
 
 func on_enemy_health_depleted(_enemy):
@@ -81,6 +83,11 @@ func deal_damage(damage):
 	actualPlayer.damage_take(damage)
 
 func listen_enemy_dead():
+	exp = exp + 1
+	$HUD/ExpBar.value = exp
+	if exp >= 10:
+		exp = 0
+		$HUD/AnimatedSprite2D.play("Level2")
 	spawnEnemy.enemies(
 		actualPlayer.position.x,
 		actualPlayer.position.y,
@@ -91,6 +98,7 @@ func listen_enemy_dead():
 func _ready():
 	create_objetive()
 	spawnEnemy.getTree = get_tree()
+	$HUD/AnimatedSprite2D.play("Level1")
 
 	actualPlayer = create_player()
 	create_tiles(0, 0)

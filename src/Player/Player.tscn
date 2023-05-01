@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://laqx0tcmpajw"]
+[gd_scene load_steps=9 format=3 uid="uid://beyq8pnr7ljk6"]
 
 [ext_resource type="Script" path="res://src/Player/Player.gd" id="1_ici0x"]
 [ext_resource type="Texture2D" uid="uid://v71r4iqppfvx" path="res://assets/art/aa2.png" id="2_phkx2"]
@@ -44,6 +44,7 @@ position = Vector2(76, 185)
 scale = Vector2(3, 2.99)
 collision_mask = 30
 script = ExtResource("1_ici0x")
+speed = 1000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.331434, -6.02008)
