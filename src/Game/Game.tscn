@@ -1,37 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2j76mrt1vlqh"]
+[gd_scene load_steps=3 format=3 uid="uid://c2j76mrt1vlqh"]
 
 [ext_resource type="Script" path="res://src/Game/Game.gd" id="1_xjmqu"]
 [ext_resource type="Texture2D" uid="uid://dilnli7xbde6a" path="res://assets/art/arrow.png" id="2_x8tbh"]
-[ext_resource type="Texture2D" uid="uid://bgw1y3aspvy3h" path="res://assets/art/Levels/level 1 .png" id="3_au6nb"]
-[ext_resource type="Texture2D" uid="uid://ws2y44bdeiip" path="res://assets/art/Levels/level 2 .png" id="4_pyraa"]
-[ext_resource type="Texture2D" uid="uid://dyeceiewr7so3" path="res://assets/art/cachorro2.png" id="5_o3xqn"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k6kbi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_au6nb")
-}],
-"loop": true,
-"name": &"Level1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_pyraa")
-}],
-"loop": true,
-"name": &"Level2",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_o3xqn")
-}],
-"loop": true,
-"name": &"Level3",
-"speed": 5.0
-}]
 
 [node name="Game" type="Area2D"]
 position = Vector2(-6, -18)
@@ -47,23 +17,20 @@ rotation = 0.0296706
 texture = ExtResource("2_x8tbh")
 
 [node name="ExpBar" type="ProgressBar" parent="HUD"]
+modulate = Color(0.0352941, 0.572549, 0, 1)
+self_modulate = Color(0.0352941, 0.572549, 0, 1)
 offset_top = 19.0
 offset_right = 234.0
-offset_bottom = 46.0
+offset_bottom = 65.0
 scale = Vector2(0.5, 0.5)
 max_value = 10.0
 show_percentage = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD"]
 modulate = Color(0, 0, 0, 1)
-offset_right = 40.0
+offset_right = 114.0
 offset_bottom = 24.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "XP"
+text = "Experiência
+"
 tab_size = 5
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD"]
-position = Vector2(967, 65)
-scale = Vector2(5.704, 5)
-sprite_frames = SubResource("SpriteFrames_k6kbi")
-animation = &"Level2"

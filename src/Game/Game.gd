@@ -85,9 +85,8 @@ func deal_damage(damage):
 func listen_enemy_dead():
 	exp = exp + 1
 	$HUD/ExpBar.value = exp
-	if exp >= 10:
+	if exp >= 15:
 		exp = 0
-		$HUD/AnimatedSprite2D.play("Level2")
 	spawnEnemy.enemies(
 		actualPlayer.position.x,
 		actualPlayer.position.y,
@@ -98,7 +97,6 @@ func listen_enemy_dead():
 func _ready():
 	create_objetive()
 	spawnEnemy.getTree = get_tree()
-	$HUD/AnimatedSprite2D.play("Level1")
 
 	actualPlayer = create_player()
 	create_tiles(0, 0)

@@ -83,9 +83,10 @@ position = Vector2(0.333328, 0)
 zoom = Vector2(0.8, 0.8)
 
 [node name="weapon" type="Sprite2D" parent="."]
-position = Vector2(-0.00288391, 0.148682)
+visible = false
+position = Vector2(0.669342, 4.62036)
 rotation = -1.57959
-scale = Vector2(0.439642, 0.0162199)
+scale = Vector2(0.218815, 0.0162199)
 texture = ExtResource("5_fcigi")
 
 [node name="Marker2D" type="Marker2D" parent="weapon"]
