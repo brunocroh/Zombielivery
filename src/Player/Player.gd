@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 400 
 var screen_size 
-var healthPlayer = GlobalScript.healthGlobalPlayer
+var healthPlayer = 100
 var currentDamage = 2
 
 func _ready():
@@ -42,10 +42,14 @@ func player_movement(delta):
   position.y = position.y
 
 ## HealthBar
+func damage_take(damage):
+  healthPlayer -= damage
+  print('health', healthPlayer)
+  update_health()
+
 func update_health():
   var healthbar = $ProgressBar
   healthbar.value = healthPlayer
-  GlobalScript.healthGlobalPlayer = healthPlayer
   
   if healthPlayer >= 100:
     healthbar.visible = false

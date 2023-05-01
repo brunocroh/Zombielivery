@@ -5,6 +5,7 @@ extends Area2D
 @onready var enemy = preload("res://src/Enemy/Enemy.tscn")
 
 var spawnEnemy = preload("./SpawnEnemy.gd").new()
+var actualPlayer
 
 var tileSize = 864
 var renderedEnemies = []
@@ -62,14 +63,14 @@ func create_tiles(x, y):
         dicTiles = {}
 
 func deal_damage(damage):
-  GlobalScript.damageTake()
+  actualPlayer.damage_take(damage)
   print('o viado atacou: ', damage)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
   spawnEnemy.getTree = get_tree()
 
-  create_player()
+  actualPlayer = create_player()
   create_tiles(0, 0)
   for i in range(10):
     renderedEnemies.append(
