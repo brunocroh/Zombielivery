@@ -65,7 +65,7 @@ func update_health():
 
 func _on_regin_timer_timeout():
 	if healthPlayer < 20:
-		healthPlayer = healthPlayer + 1
+		healthPlayer = healthPlayer + 20
 		if healthPlayer > 20:
 			healthPlayer = 20
 		if healthPlayer == 0:
