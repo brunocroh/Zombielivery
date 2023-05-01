@@ -9,7 +9,7 @@ size = Vector2(11.6996, 11.2049)
 [sub_resource type="CircleShape2D" id="CircleShape2D_fx717"]
 radius = 15.9063
 
-[node name="Node2D" type="CharacterBody2D"]
+[node name="Bullet" type="CharacterBody2D"]
 collision_layer = 32
 collision_mask = 8
 script = ExtResource("1_8th3l")
